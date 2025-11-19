@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jurnalku/login.dart';
+import 'package:jurnalku/panduan_pengguna.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Login(),
+      debugShowCheckedModeBanner: false,
+      home: PanduanPengguna(),
     );
   }
 }
