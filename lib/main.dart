@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jurnalku/permintaan_saksi.dart';
+import 'package:jurnalku/panduan_pengguna.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: PermintaanSaksi(),
+      home: PanduanPengguna(),
     );
   }
 }
