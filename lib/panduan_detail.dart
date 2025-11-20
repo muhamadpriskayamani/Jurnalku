@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget {
       body: Center(
         child: Text(
           "Ini adalah halaman detail untuk: $title",
-          style: const TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 16),
         ),
       ),
     );
