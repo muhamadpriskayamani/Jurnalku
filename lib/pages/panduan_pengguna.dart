@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jurnalku/panduan_detail.dart';
+import 'package:jurnalku/pages/panduan_detail.dart';
 
 class PanduanPengguna extends StatelessWidget {
   const PanduanPengguna({super.key});
