@@ -4,7 +4,8 @@ import 'package:jurnalku/widgets/app_bar_custom.dart';
 import 'package:jurnalku/widgets/side_bar.dart';
 
 class ProfileDiri extends StatefulWidget {
-  const ProfileDiri({super.key});
+  final int initialTab;
+  const ProfileDiri({super.key, this.initialTab = 0});
 
   @override
   State<ProfileDiri> createState() => _ProfileDiriState();
@@ -332,6 +333,7 @@ class _ProfileDiriState extends State<ProfileDiri> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
+      initialIndex: widget.initialTab,
       child: Scaffold(
         backgroundColor: Colors.white,
         endDrawer: SideBar(),
@@ -627,7 +629,6 @@ class _ProfileDiriState extends State<ProfileDiri> {
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
-          // Add Certificate Button
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

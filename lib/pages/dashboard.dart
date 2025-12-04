@@ -9,6 +9,7 @@ import 'package:jurnalku/pages/progress_belajar.dart';
 import 'package:jurnalku/widgets/app_bar_custom.dart';
 import 'package:jurnalku/widgets/card_border_with_status.dart';
 import 'package:jurnalku/widgets/side_bar.dart';
+import 'package:jurnalku/pages/profile.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -348,98 +349,124 @@ class Dashboard extends StatelessWidget {
 
                                 SizedBox(height: 25),
 
-                                Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFdeeafd),
-                                        borderRadius: BorderRadius.circular(50),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProfileDiri(initialTab: 1),
                                       ),
-                                      child: Icon(
-                                        Icons.work,
-                                        color: Color(0xFF3a449f),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFdeeafd),
+                                          borderRadius: BorderRadius.circular(
+                                            50,
+                                          ),
+                                        ),
+                                        child: Icon(
+                                          Icons.work,
+                                          color: Color(0xFF3a449f),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(width: 15),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Portofolio",
-                                          style: GoogleFonts.inter(
-                                            fontSize: 16,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
+                                      SizedBox(width: 15),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Portofolio",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.left,
                                           ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        Text(
-                                          "Lihat dan kelola portofolio \nkompetensimu disini.",
-                                          style: GoogleFonts.inter(
-                                            fontSize: 14,
-                                            color: Colors.grey[800],
+                                          Text(
+                                            "Lihat dan kelola portofolio \nkompetensimu disini.",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 14,
+                                              color: Colors.grey[800],
+                                            ),
+                                            textAlign: TextAlign.left,
                                           ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                      ],
-                                    ),
-                                    Spacer(),
-                                    Icon(
-                                      Icons.arrow_forward_ios_rounded,
-                                      color: Colors.grey[400],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                      Spacer(),
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        color: Colors.grey[400],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 SizedBox(height: 20),
                                 Divider(height: 1, color: Colors.grey[300]),
 
                                 SizedBox(height: 25),
 
-                                Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFdeeafd),
-                                        borderRadius: BorderRadius.circular(50),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProfileDiri(initialTab: 2),
                                       ),
-                                      child: Icon(
-                                        Icons.star_border_sharp,
-                                        color: Color(0xFF3a449f),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFdeeafd),
+                                          borderRadius: BorderRadius.circular(
+                                            50,
+                                          ),
+                                        ),
+                                        child: Icon(
+                                          Icons.star_border_sharp,
+                                          color: Color(0xFF3a449f),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(width: 15),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Sertifikat",
-                                          style: GoogleFonts.inter(
-                                            fontSize: 16,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
+                                      SizedBox(width: 15),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Sertifikat",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.left,
                                           ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                        Text(
-                                          "Lihat dan unduh sertifikat \nkompetensimu disini.",
-                                          style: GoogleFonts.inter(
-                                            fontSize: 14,
-                                            color: Colors.grey[800],
+                                          Text(
+                                            "Lihat dan unduh sertifikat \nkompetensimu disini.",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 14,
+                                              color: Colors.grey[800],
+                                            ),
+                                            textAlign: TextAlign.left,
                                           ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                      ],
-                                    ),
-                                    Spacer(),
-                                    Icon(
-                                      Icons.arrow_forward_ios_rounded,
-                                      color: Colors.grey[400],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                      Spacer(),
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        color: Colors.grey[400],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

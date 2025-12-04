@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jurnalku/pages/dashboard.dart';
+import 'package:jurnalku/pages/explore_page.dart';
 
 class AppBarCustom extends StatelessWidget {
   const AppBarCustom({super.key});
@@ -34,7 +34,7 @@ class AppBarCustom extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context, 
-                        MaterialPageRoute(builder: (context) => Dashboard())
+                        MaterialPageRoute(builder: (context) => ExplorePage())
                       );
                     },
                     child: Icon(
