@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku/pages/dashboard.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -16,18 +17,16 @@ class LoginPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             SizedBox(
               width: double.infinity,
               child: Image.asset(
-                "assets/image/Banner-Web.jpg",
+                "assets/images/Banner-Web.jpg",
                 fit: BoxFit.cover,
               ),
             ),
 
             const SizedBox(height: 20),
 
-           
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -80,7 +79,12 @@ class LoginPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (context) => Dashboard())
+                        );
+                      },
                       child: const Text(
                         "Masuk",
                         style: TextStyle(fontSize: 16, color: Colors.white),
@@ -117,10 +121,7 @@ class LoginPage extends StatelessWidget {
                 "Jurnalku adalah aplikasi cerdas yang membantu guru dan siswa "
                 "dalam memantau dan mengelola kompetensi keahlian siswa secara efektif.",
                 textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey.shade700,
-                ),
+                style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
               ),
             ),
 
@@ -196,7 +197,6 @@ class LoginPage extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -222,10 +222,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   description,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade700,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
                 ),
               ],
             ),
