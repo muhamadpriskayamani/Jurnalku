@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jurnalku/pages/login.dart';
 
 import 'dart:ui';
 
-import 'package:jurnalku/pages/dashboard.dart';
-
-class ExplorePage extends StatefulWidget {
-  const ExplorePage({super.key});
+class ExplorePageLogin extends StatefulWidget {
+  const ExplorePageLogin({super.key});
 
   @override
-  State<ExplorePage> createState() => _ExplorePageState();
+  State<ExplorePageLogin> createState() => _ExplorePageLoginState();
 }
 
-class _ExplorePageState extends State<ExplorePage> {
+class _ExplorePageLoginState extends State<ExplorePageLogin> {
   final Color primaryColor = const Color(0xFF02398C);
 
   bool showFilters = false;
@@ -48,9 +47,9 @@ class _ExplorePageState extends State<ExplorePage> {
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => Dashboard()),
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -59,7 +58,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              child: Text("Dashboard", style: TextStyle(color: Colors.white)),
+              child: Text("Login", style: TextStyle(color: Colors.white)),
             ),
           ),
         ],
@@ -190,25 +189,11 @@ class _ExplorePageState extends State<ExplorePage> {
                                 },
                                 icon: Icon(
                                   Icons.filter_alt_outlined,
-                                  color: Colors.black,
+                                  color: Color(0xFF02398C),
                                 ),
-                                label: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      "Filter Lanjutan",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    SizedBox(width: 6),
-                                    Icon(
-                                      showFilters
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down,
-                                      color: Colors.black,
-                                    ),
-                                  ],
+                                label: Text(
+                                  "Filter Lanjutan",
+                                  style: TextStyle(color: Color(0xFF02398C)),
                                 ),
                                 style: OutlinedButton.styleFrom(
                                   padding: EdgeInsets.symmetric(
@@ -221,148 +206,148 @@ class _ExplorePageState extends State<ExplorePage> {
                                   ),
                                 ),
                               ),
-                              // AnimatedSize(
-                              //   duration: Duration(milliseconds: 300),
-                              //   curve: Curves.easeInOut,
-                              //   child: showFilters
-                              //       ? Padding(
-                              //           padding: EdgeInsets.only(top: 16),
-                              //           child: SingleChildScrollView(
-                              //             physics:
-                              //                 NeverScrollableScrollPhysics(),
-                              //             child: Column(
-                              //               children: [
-                              //                 DropdownButtonFormField<String>(
-                              //                   value: selectedRombel,
-                              //                   decoration: InputDecoration(
-                              //                     labelText: "Rombel",
-                              //                     border: OutlineInputBorder(),
-                              //                   ),
-                              //                   items:
-                              //                       [
-                              //                             "Semua Rombel",
-                              //                             "PPLG XII-5",
-                              //                             "PPLG XII-4",
-                              //                           ]
-                              //                           .map(
-                              //                             (e) =>
-                              //                                 DropdownMenuItem(
-                              //                                   value: e,
-                              //                                   child: Text(e),
-                              //                                 ),
-                              //                           )
-                              //                           .toList(),
-                              //                   onChanged: (val) {
-                              //                     setState(
-                              //                       () => selectedRombel = val!,
-                              //                     );
-                              //                   },
-                              //                 ),
+                              AnimatedSize(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                                child: showFilters
+                                    ? Padding(
+                                        padding: EdgeInsets.only(top: 16),
+                                        child: SingleChildScrollView(
+                                          physics:
+                                              NeverScrollableScrollPhysics(),
+                                          child: Column(
+                                            children: [
+                                              DropdownButtonFormField<String>(
+                                                value: selectedRombel,
+                                                decoration: InputDecoration(
+                                                  labelText: "Rombel",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Rombel",
+                                                          "PPLG XII-5",
+                                                          "PPLG XII-4",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () => selectedRombel = val!,
+                                                  );
+                                                },
+                                              ),
 
-                              //                 SizedBox(height: 14),
+                                              SizedBox(height: 14),
 
-                              //                 DropdownButtonFormField<String>(
-                              //                   value: selectedRayon,
-                              //                   decoration: InputDecoration(
-                              //                     labelText: "Rayon",
-                              //                     border: OutlineInputBorder(),
-                              //                   ),
-                              //                   items:
-                              //                       [
-                              //                             "Semua Rayon",
-                              //                             "Cia 5",
-                              //                             "Cia 6",
-                              //                             "Cis 5",
-                              //                             "Wik 4",
-                              //                           ]
-                              //                           .map(
-                              //                             (e) =>
-                              //                                 DropdownMenuItem(
-                              //                                   value: e,
-                              //                                   child: Text(e),
-                              //                                 ),
-                              //                           )
-                              //                           .toList(),
-                              //                   onChanged: (val) {
-                              //                     setState(
-                              //                       () => selectedRayon = val!,
-                              //                     );
-                              //                   },
-                              //                 ),
+                                              DropdownButtonFormField<String>(
+                                                value: selectedRayon,
+                                                decoration: InputDecoration(
+                                                  labelText: "Rayon",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Rayon",
+                                                          "Cia 5",
+                                                          "Cia 6",
+                                                          "Cis 5",
+                                                          "Wik 4",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () => selectedRayon = val!,
+                                                  );
+                                                },
+                                              ),
 
-                              //                 SizedBox(height: 14),
+                                              SizedBox(height: 14),
 
-                              //                 DropdownButtonFormField<String>(
-                              //                   value: selectedJurusan,
-                              //                   decoration: InputDecoration(
-                              //                     labelText: "Jurusan",
-                              //                     border: OutlineInputBorder(),
-                              //                   ),
-                              //                   items:
-                              //                       [
-                              //                             "Semua Jurusan",
-                              //                             "PPLG",
-                              //                             "MPLB",
-                              //                             "DKV",
-                              //                           ]
-                              //                           .map(
-                              //                             (e) =>
-                              //                                 DropdownMenuItem(
-                              //                                   value: e,
-                              //                                   child: Text(e),
-                              //                                 ),
-                              //                           )
-                              //                           .toList(),
-                              //                   onChanged: (val) {
-                              //                     setState(
-                              //                       () =>
-                              //                           selectedJurusan = val!,
-                              //                     );
-                              //                   },
-                              //                 ),
+                                              DropdownButtonFormField<String>(
+                                                value: selectedJurusan,
+                                                decoration: InputDecoration(
+                                                  labelText: "Jurusan",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Jurusan",
+                                                          "PPLG",
+                                                          "MPLB",
+                                                          "DKV",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () =>
+                                                        selectedJurusan = val!,
+                                                  );
+                                                },
+                                              ),
 
-                              //                 SizedBox(height: 20),
+                                              SizedBox(height: 20),
 
-                              //                 SizedBox(
-                              //                   width: double.infinity,
-                              //                   child: ElevatedButton(
-                              //                     onPressed: () {},
-                              //                     style:
-                              //                         ElevatedButton.styleFrom(
-                              //                           backgroundColor: Color(
-                              //                             0xFF02398C,
-                              //                           ),
-                              //                         ),
-                              //                     child: Text(
-                              //                       "Terapkan Filter",
-                              //                     ),
-                              //                   ),
-                              //                 ),
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: ElevatedButton(
+                                                  onPressed: () {},
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                        backgroundColor: Color(
+                                                          0xFF02398C,
+                                                        ),
+                                                      ),
+                                                  child: Text(
+                                                    "Terapkan Filter",
+                                                  ),
+                                                ),
+                                              ),
 
-                              //                 SizedBox(height: 6),
+                                              SizedBox(height: 6),
 
-                              //                 SizedBox(
-                              //                   width: double.infinity,
-                              //                   child: TextButton(
-                              //                     onPressed: () {
-                              //                       setState(() {
-                              //                         selectedRombel =
-                              //                             "Semua Rombel";
-                              //                         selectedRayon =
-                              //                             "Semua Rayon";
-                              //                         selectedJurusan =
-                              //                             "Semua Jurusan";
-                              //                       });
-                              //                     },
-                              //                     child: Text("Reset Filter"),
-                              //                   ),
-                              //                 ),
-                              //               ],
-                              //             ),
-                              //           ),
-                              //         )
-                              //       : SizedBox(),
-                              // ),
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      selectedRombel =
+                                                          "Semua Rombel";
+                                                      selectedRayon =
+                                                          "Semua Rayon";
+                                                      selectedJurusan =
+                                                          "Semua Jurusan";
+                                                    });
+                                                  },
+                                                  child: Text("Reset Filter"),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(),
+                              ),
                             ],
                           ),
                         ),

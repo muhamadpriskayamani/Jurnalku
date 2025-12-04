@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku/pages/dashboard.dart';
 
 class ProfileDiri extends StatefulWidget {
   const ProfileDiri({super.key});
@@ -387,7 +388,10 @@ class _ProfileDiriState extends State<ProfileDiri> {
                 padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Dashboard()),
+                    );
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),

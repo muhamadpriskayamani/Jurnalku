@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jurnalku/widgets/app_bar_custom.dart';
 import 'package:jurnalku/widgets/card_border_with_status.dart';
 import 'package:intl/intl.dart';
+import 'package:jurnalku/widgets/side_bar.dart';
 
 class ProgressBelajar extends StatelessWidget {
   const ProgressBelajar({super.key});
@@ -33,204 +35,146 @@ class ProgressBelajar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FB),
-
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            Icon(Icons.home_outlined, size: 18, color: Colors.black45),
-            SizedBox(width: 6),
-            Icon(Icons.chevron_right, size: 18, color: Colors.black38),
-            SizedBox(width: 6),
-
-            Builder(
-              builder: (context) {
-                double width = MediaQuery.of(context).size.width;
-                if (width < 500) return SizedBox.shrink();
-                return Text(
-                  "Progress",
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w500,
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-
-        actions: [
-          Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Muhamad Priska Yamani",
-                    style: TextStyle(
-                      fontSize: 12.5,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    "PPLG XII-5",
-                    style: TextStyle(fontSize: 10.5, color: Colors.black54),
-                  ),
-                ],
-              ),
-              SizedBox(width: 8),
-
-              CircleAvatar(
-                radius: 15,
-                backgroundImage: AssetImage("assets/images/profile.jpg"),
-              ),
-
-              SizedBox(width: 4),
-              Icon(
-                Icons.keyboard_arrow_down_rounded,
-                size: 20,
-                color: Colors.black54,
-              ),
-              SizedBox(width: 10),
-            ],
-          ),
-        ],
-      ),
-
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+      endDrawer: SideBar() ,
+      body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Progress Belajar",
-              style: GoogleFonts.inter(
-                fontSize: 23,
-                fontWeight: FontWeight.w700,
+            AppBarCustom(),
+            Expanded(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Progress Belajar",
+                      style: GoogleFonts.inter(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+              
+                    SizedBox(height: 4),
+              
+                    Text(
+                      "Pantau perkembangan kompetensi dan materi pembelajaran Anda",
+                      style: GoogleFonts.inter(fontSize: 13.5, color: Colors.black54),
+                    ),
+              
+                    SizedBox(height: 10),
+                    _dateBadge(),
+                    SizedBox(height: 20),
+              
+                    Column(
+                      children: [
+                        CardBorderWithStatus(
+                          title: "Total Pengajuan",
+                          number: 0,
+                          icon: Icons.check_circle,
+                          iconColor: Colors.blue,
+                          iconBackgroundColor: Colors.blue.withOpacity(0.15),
+                          iconSize: 26,
+                          iconPadding: EdgeInsets.all(10),
+                          numberColor: Colors.black,
+                          status: "Semua status",
+                          statusColor: Colors.blue,
+                        ),
+                        SizedBox(height: 15),
+                        CardBorderWithStatus(
+                          title: "Halaman Ini",
+                          number: 0,
+                          icon: Icons.calendar_month,
+                          iconColor: Colors.green,
+                          iconBackgroundColor: Colors.green.withOpacity(0.15),
+                          iconSize: 26,
+                          iconPadding: EdgeInsets.all(10),
+                          numberColor: Colors.black,
+                          status: "Data ditampilkan",
+                          statusColor: Colors.green,
+                        ),
+                        SizedBox(height: 15),
+                        CardBorderWithStatus(
+                          title: "Status Pending",
+                          number: 0,
+                          icon: Icons.pending_actions,
+                          iconColor: Colors.orange,
+                          iconBackgroundColor: Colors.orange.withOpacity(0.15),
+                          iconSize: 26,
+                          iconPadding: EdgeInsets.all(10),
+                          numberColor: Colors.black,
+                          status: "Perlu validasi",
+                          statusColor: Colors.orange,
+                        ),
+                        SizedBox(height: 15),
+                        CardBorderWithStatus(
+                          title: "Total Halaman",
+                          number: 1000,
+                          icon: Icons.map,
+                          iconColor: Colors.purple,
+                          iconBackgroundColor: Colors.purple.withOpacity(0.15),
+                          iconSize: 26,
+                          iconPadding: EdgeInsets.all(10),
+                          numberColor: Colors.black,
+                          status: "Navigasi tersedia",
+                          statusColor: Colors.purple,
+                        ),
+                      ],
+                    ),
+              
+                    SizedBox(height: 20),
+              
+                    _buildKompetensiCard(
+                      "Project Work",
+                      namaProject: "Aplikasi Kasir Flutter",
+                      kompetensi: "Pemrograman Mobile",
+                      guru: "Nur Rizky",
+                      tanggal: "13 Desember 2025",
+                      status: "Selesai",
+                      catatanGuru: "Sangat baik",
+                      catatanSiswa: "Tidak ada kendala",
+                    ),
+              
+                    SizedBox(height: 15),
+              
+                    _buildKompetensiCard(
+                      "Mobile Apps",
+                      namaProject: "Belum ada data",
+                      kompetensi: "",
+                      guru: "",
+                      tanggal: "",
+                      status: "",
+                      catatanGuru: "",
+                      catatanSiswa: "",
+                    ),
+              
+                    SizedBox(height: 15),
+              
+                    _buildKompetensiCard(
+                      "UKK (Uji Kompetensi Keahlian)",
+                      namaProject: "Belum ada data",
+                      kompetensi: "",
+                      guru: "",
+                      tanggal: "",
+                      status: "",
+                      catatanGuru: "",
+                      catatanSiswa: "",
+                    ),
+              
+                    SizedBox(height: 15),
+              
+                    _buildKompetensiCard(
+                      "GIM",
+                      namaProject: "Belum ada data",
+                      kompetensi: "",
+                      guru: "",
+                      tanggal: "",
+                      status: "",
+                      catatanGuru: "",
+                      catatanSiswa: "",
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-            SizedBox(height: 4),
-
-            Text(
-              "Pantau perkembangan kompetensi dan materi pembelajaran Anda",
-              style: GoogleFonts.inter(fontSize: 13.5, color: Colors.black54),
-            ),
-
-            SizedBox(height: 10),
-            _dateBadge(),
-            SizedBox(height: 20),
-
-            Column(
-              children: [
-                CardBorderWithStatus(
-                  title: "Total Pengajuan",
-                  number: 0,
-                  icon: Icons.check_circle,
-                  iconColor: Colors.blue,
-                  iconBackgroundColor: Colors.blue.withOpacity(0.15),
-                  iconSize: 26,
-                  iconPadding: EdgeInsets.all(10),
-                  numberColor: Colors.black,
-                  status: "Semua status",
-                  statusColor: Colors.blue,
-                ),
-                SizedBox(height: 15),
-                CardBorderWithStatus(
-                  title: "Halaman Ini",
-                  number: 0,
-                  icon: Icons.calendar_month,
-                  iconColor: Colors.green,
-                  iconBackgroundColor: Colors.green.withOpacity(0.15),
-                  iconSize: 26,
-                  iconPadding: EdgeInsets.all(10),
-                  numberColor: Colors.black,
-                  status: "Data ditampilkan",
-                  statusColor: Colors.green,
-                ),
-                SizedBox(height: 15),
-                CardBorderWithStatus(
-                  title: "Status Pending",
-                  number: 0,
-                  icon: Icons.pending_actions,
-                  iconColor: Colors.orange,
-                  iconBackgroundColor: Colors.orange.withOpacity(0.15),
-                  iconSize: 26,
-                  iconPadding: EdgeInsets.all(10),
-                  numberColor: Colors.black,
-                  status: "Perlu validasi",
-                  statusColor: Colors.orange,
-                ),
-                SizedBox(height: 15),
-                CardBorderWithStatus(
-                  title: "Total Halaman",
-                  number: 1000,
-                  icon: Icons.map,
-                  iconColor: Colors.purple,
-                  iconBackgroundColor: Colors.purple.withOpacity(0.15),
-                  iconSize: 26,
-                  iconPadding: EdgeInsets.all(10),
-                  numberColor: Colors.black,
-                  status: "Navigasi tersedia",
-                  statusColor: Colors.purple,
-                ),
-              ],
-            ),
-
-            SizedBox(height: 20),
-
-            _buildKompetensiCard(
-              "Project Work",
-              namaProject: "Aplikasi Kasir Flutter",
-              kompetensi: "Pemrograman Mobile",
-              guru: "Nur Rizky",
-              tanggal: "13 Desember 2025",
-              status: "Selesai",
-              catatanGuru: "Sangat baik",
-              catatanSiswa: "Tidak ada kendala",
-            ),
-
-            SizedBox(height: 15),
-
-            _buildKompetensiCard(
-              "Mobile Apps",
-              namaProject: "Belum ada data",
-              kompetensi: "",
-              guru: "",
-              tanggal: "",
-              status: "",
-              catatanGuru: "",
-              catatanSiswa: "",
-            ),
-
-            SizedBox(height: 15),
-
-            _buildKompetensiCard(
-              "UKK (Uji Kompetensi Keahlian)",
-              namaProject: "Belum ada data",
-              kompetensi: "",
-              guru: "",
-              tanggal: "",
-              status: "",
-              catatanGuru: "",
-              catatanSiswa: "",
-            ),
-
-            SizedBox(height: 15),
-
-            _buildKompetensiCard(
-              "GIM",
-              namaProject: "Belum ada data",
-              kompetensi: "",
-              guru: "",
-              tanggal: "",
-              status: "",
-              catatanGuru: "",
-              catatanSiswa: "",
             ),
           ],
         ),
