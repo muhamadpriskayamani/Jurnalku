@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'dart:ui';
 
+import 'package:jurnalku/pages/dashboard.dart';
+
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
 
@@ -45,7 +47,12 @@ class _ExplorePageState extends State<ExplorePage> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => Dashboard()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(

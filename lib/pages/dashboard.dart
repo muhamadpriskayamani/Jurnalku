@@ -6,8 +6,9 @@ import 'package:jurnalku/pages/catatan_sikap.dart';
 import 'package:jurnalku/pages/jurnal_pembiasaan.dart';
 import 'package:jurnalku/pages/permintaan_saksi.dart';
 import 'package:jurnalku/pages/progress_belajar.dart';
+import 'package:jurnalku/widgets/app_bar_custom.dart';
 import 'package:jurnalku/widgets/card_border_with_status.dart';
-import 'package:jurnalku/widgets/navbar.dart';
+import 'package:jurnalku/widgets/side_bar.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -23,114 +24,11 @@ class Dashboard extends StatelessWidget {
     const Color secondaryColor = Color.fromARGB(255, 0, 45, 223);
 
     return Scaffold(
-      endDrawer: const NavbarPage(),
+      endDrawer: const SideBar(),
       body: SafeArea(
         child: Column(
           children: [
-            Builder(
-              builder: (BuildContext context) {
-                return GestureDetector(
-                  onTap: () {
-                    Scaffold.of(context).openEndDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: PreferredSize(
-                      preferredSize: Size.fromHeight(55),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Colors.black12,
-                              width: 0.6,
-                            ),
-                          ),
-                        ),
-                        padding: EdgeInsets.symmetric(horizontal: 22),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.home_outlined,
-                                  size: 18,
-                                  color: Colors.black45,
-                                ),
-                                SizedBox(width: 6),
-                                Icon(
-                                  Icons.chevron_right,
-                                  size: 18,
-                                  color: Colors.black38,
-                                ),
-                                SizedBox(width: 6),
-                                Builder(
-                                  builder: (context) {
-                                    double width = MediaQuery.of(
-                                      context,
-                                    ).size.width;
-                                    // kalau layar kecil, tulisan nya di sembunyiin
-                                    if (width < 500) {
-                                      return SizedBox.shrink();
-                                    }
-                                    return Text(
-                                      "Panduan Penggunaan",
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.black87,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Muhamad Priska Yamani",
-                                      style: TextStyle(
-                                        fontSize: 12.5,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    Text(
-                                      "PPLG XII-5",
-                                      style: TextStyle(
-                                        fontSize: 10.5,
-                                        color: Colors.black54,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(width: 8),
-                                CircleAvatar(
-                                  radius: 15,
-                                  backgroundImage: AssetImage(
-                                    "assets/images/profile.jpg",
-                                  ),
-                                ),
-                                SizedBox(width: 4),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  size: 20,
-                                  color: Colors.black54,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
+            AppBarCustom(),
 
             Expanded(
               child: SingleChildScrollView(
