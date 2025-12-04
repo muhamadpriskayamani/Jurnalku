@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jurnalku/pages/dashboard.dart';
+import 'package:jurnalku/widgets/app_bar_custom.dart';
+import 'package:jurnalku/widgets/side_bar.dart';
 
 class ProfileDiri extends StatefulWidget {
   const ProfileDiri({super.key});
@@ -332,55 +334,10 @@ class _ProfileDiriState extends State<ProfileDiri> {
       length: 3,
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          shadowColor: Colors.black,
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(Icons.home_outlined, color: Colors.grey, size: 25),
-            onPressed: () {
-              // Navigator.pop(context);
-            },
-          ),
-
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 12),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Muhamad Priska Yamani",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 2),
-                        Text(
-                          "PPLG XII-5",
-                          style: TextStyle(color: Colors.grey, fontSize: 12),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/profile.jpg'),
-                    radius: 22,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        endDrawer: SideBar(),
         body: Column(
           children: [
+            AppBarCustom(),
             SizedBox(height: 12),
             Align(
               alignment: Alignment.centerLeft,
