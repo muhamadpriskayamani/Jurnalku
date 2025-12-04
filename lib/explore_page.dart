@@ -4,10 +4,21 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'dart:ui';
 
-class ExplorePage extends StatelessWidget {
+class ExplorePage extends StatefulWidget {
+  const ExplorePage({super.key});
+
+  @override
+  State<ExplorePage> createState() => _ExplorePageState();
+}
+
+class _ExplorePageState extends State<ExplorePage> {
   final Color primaryColor = const Color(0xFF02398C);
 
-  const ExplorePage({super.key});
+  bool showFilters = false;
+
+  String selectedRombel = 'Semua Rombel';
+  String selectedRayon = 'Semua Rayon';
+  String selectedJurusan = 'Semua Jurusan';
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +176,11 @@ class ExplorePage extends StatelessWidget {
                               SizedBox(height: 12),
 
                               OutlinedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    showFilters = !showFilters;
+                                  });
+                                },
                                 icon: Icon(
                                   Icons.filter_alt_outlined,
                                   color: Color(0xFF02398C),
@@ -184,6 +199,148 @@ class ExplorePage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
+                              ),
+                              AnimatedSize(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                                child: showFilters
+                                    ? Padding(
+                                        padding: EdgeInsets.only(top: 16),
+                                        child: SingleChildScrollView(
+                                          physics:
+                                              NeverScrollableScrollPhysics(),
+                                          child: Column(
+                                            children: [
+                                              DropdownButtonFormField<String>(
+                                                value: selectedRombel,
+                                                decoration: InputDecoration(
+                                                  labelText: "Rombel",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Rombel",
+                                                          "PPLG XII-5",
+                                                          "PPLG XII-4",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () => selectedRombel = val!,
+                                                  );
+                                                },
+                                              ),
+
+                                              SizedBox(height: 14),
+
+                                              DropdownButtonFormField<String>(
+                                                value: selectedRayon,
+                                                decoration: InputDecoration(
+                                                  labelText: "Rayon",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Rayon",
+                                                          "Cia 5",
+                                                          "Cia 6",
+                                                          "Cis 5",
+                                                          "Wik 4",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () => selectedRayon = val!,
+                                                  );
+                                                },
+                                              ),
+
+                                              SizedBox(height: 14),
+
+                                              DropdownButtonFormField<String>(
+                                                value: selectedJurusan,
+                                                decoration: InputDecoration(
+                                                  labelText: "Jurusan",
+                                                  border: OutlineInputBorder(),
+                                                ),
+                                                items:
+                                                    [
+                                                          "Semua Jurusan",
+                                                          "PPLG",
+                                                          "MPLB",
+                                                          "DKV",
+                                                        ]
+                                                        .map(
+                                                          (e) =>
+                                                              DropdownMenuItem(
+                                                                value: e,
+                                                                child: Text(e),
+                                                              ),
+                                                        )
+                                                        .toList(),
+                                                onChanged: (val) {
+                                                  setState(
+                                                    () =>
+                                                        selectedJurusan = val!,
+                                                  );
+                                                },
+                                              ),
+
+                                              SizedBox(height: 20),
+
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: ElevatedButton(
+                                                  onPressed: () {},
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                        backgroundColor: Color(
+                                                          0xFF02398C,
+                                                        ),
+                                                      ),
+                                                  child: Text(
+                                                    "Terapkan Filter",
+                                                  ),
+                                                ),
+                                              ),
+
+                                              SizedBox(height: 6),
+
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      selectedRombel =
+                                                          "Semua Rombel";
+                                                      selectedRayon =
+                                                          "Semua Rayon";
+                                                      selectedJurusan =
+                                                          "Semua Jurusan";
+                                                    });
+                                                  },
+                                                  child: Text("Reset Filter"),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(),
                               ),
                             ],
                           ),
