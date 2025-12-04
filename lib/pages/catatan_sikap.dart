@@ -115,7 +115,7 @@ class CatatanSikap extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Jika Anda merasa ada catatan yang tidak sesuai atau\nkeliru, silakan hubungi guru jurusan untuk mengajukan\nklarifikasi.",
+                          "Jika Anda merasa ada catatan yang tidak sesuai \natau keliru, silakan hubungi guru jurusan \nuntuk mengajukan klarifikasi.",
                           style: GoogleFonts.inter(
                             color: Color(0xFF92400E),
                           ),
@@ -155,106 +155,190 @@ class CatatanSikap extends StatelessWidget {
               ),
 
               SizedBox(height: 20),
-        
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.zero,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.grey.shade300, width: 1),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 5,
-                      spreadRadius: 1,
-                      color: Colors.black12,
-                      offset: Offset(2, 1)
-                    )
-                  ]
-                ),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Column(
+
+              Column(
+                children: [
+                  ExpansionTile(
+                    collapsedBackgroundColor: Colors.grey[200],
+                    backgroundColor: Colors.grey[200],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(color: Colors.grey.shade300),
+                    ),
+                    collapsedShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(color: Colors.grey.shade300),
+                    ),
+                  
+                    title: Text(
+                      "No 1",
+                      style: GoogleFonts.inter(
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
                     children: [
-                      Container(
-                        padding: EdgeInsets.zero,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 1,
-                              color: Colors.grey.shade300
-                            )
-                          )
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Row(
-                            children: [
-                              _buildTableHeader('No', width: 60), 
-                              _buildTableHeader('Category', width: 120),
-                              _buildTableHeader('Catatan', width: 150),
-                              _buildTableHeader('Status', width: 100),
-                              _buildTableHeader('Dilaporkan', width: 120),
-                              _buildTableHeader('Update terakhir', width: 150),
-                              _buildTableHeader('Aksi', width: 100),
-                            ],
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Catergoy :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  ".....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "Catatan :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "Status :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "Dilaporkan :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "Update terakhir :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "Aksi :",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "....",
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(30),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.check_circle_outline_outlined,
-                                size: 50,
-                                color: Colors.grey,
-                              ),
-                              SizedBox(height: 15),
-                              Text(
-                                "Tidak ada catatan",
-                                style: GoogleFonts.inter(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 22
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                "Belum ada catatan sikap yang dilaporkan",
-                                style: GoogleFonts.inter(
-                                  color: Colors.grey
-                                ),
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
-                        ),
-                      )
                     ],
                   ),
-                ),
-              )
+                ],
+              ),
+
             ],
           ), 
         ),
       ),
     );
   }
-}
-
-Widget _buildTableHeader(String text, {double width = 100}) {
-  return Container(
-    width: width, // **HARUS DIBERI WIDTH EKSPLISIT**
-    child: Text(
-      text,
-      textAlign: TextAlign.center,
-      style: GoogleFonts.inter(
-        fontWeight: FontWeight.w600
-      ),
-    ),
-  );
 }

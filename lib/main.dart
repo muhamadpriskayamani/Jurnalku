@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jurnalku/pages/catatan_sikap.dart';
-// import 'package:jurnalku/permintaan_saksi.dart';
+import 'package:jurnalku/pages/jurnal_pembiasaan.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: CatatanSikap(),
+      home: JurnalPembiasaan(),
     );
   }
 }
