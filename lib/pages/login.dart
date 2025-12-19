@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:jurnalku/pages/dashboard.dart';
 import 'package:jurnalku/pages/explore_page_login.dart';
+// import 'package:jurnalku/services/token_service.dart';
+// import 'package:http/http.dart' as http;
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _nis = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +21,8 @@ class LoginPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (context) => ExplorePageLogin())
+            context,
+            MaterialPageRoute(builder: (context) => ExplorePageLogin()),
           );
         },
         label: const Text("Jelajahi siswa"),
@@ -87,8 +97,8 @@ class LoginPage extends StatelessWidget {
                       ),
                       onPressed: () {
                         Navigator.push(
-                          context, 
-                          MaterialPageRoute(builder: (context) => Dashboard())
+                          context,
+                          MaterialPageRoute(builder: (context) => Dashboard()),
                         );
                       },
                       child: const Text(
