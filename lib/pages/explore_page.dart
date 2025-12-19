@@ -28,6 +28,7 @@ class _ExplorePageState extends State<ExplorePage> {
       backgroundColor: Colors.grey[100],
 
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 2,
         title: Row(
